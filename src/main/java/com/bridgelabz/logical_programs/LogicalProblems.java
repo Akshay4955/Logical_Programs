@@ -10,6 +10,21 @@ public class LogicalProblems {
         logicalProblems.getFibonacciSeries();
         logicalProblems.getPerfectNumber();
         logicalProblems.checkPrimeNumber();
+        logicalProblems.getReverseNumber();
+    }
+
+    void getReverseNumber() {
+        System.out.println("Welcome to get Reverse Number");
+        System.out.println("Enter the number:");
+        int number = input.nextInt();
+        int reverseNumber = 0;
+        while (number != 0) {
+            int remainder = number % 10;
+            reverseNumber = reverseNumber * 10 + remainder;
+            number = number / 10;
+        }
+
+        System.out.println("Reverse number is: " + reverseNumber);
     }
 
     void checkPrimeNumber() {
