@@ -9,6 +9,22 @@ public class LogicalProblems {
         LogicalProblems logicalProblems = new LogicalProblems();
         logicalProblems.getFibonacciSeries();
         logicalProblems.getPerfectNumber();
+        logicalProblems.checkPrimeNumber();
+    }
+
+    void checkPrimeNumber() {
+        System.out.println("Welcome to check Prime Number");
+        System.out.println("Enter the number :");
+        int number = input.nextInt();
+        if (number == 2)
+            System.out.println(number + " number is a prime number");
+        for (int i = 2; i <= number / 2; i += 2) {
+            if (number % i == 0) {
+                System.out.println(number + " number is not a prime number");
+                break;
+            }
+            System.out.println(number + " number is a prime number");
+        }
     }
 
     void getPerfectNumber() {
