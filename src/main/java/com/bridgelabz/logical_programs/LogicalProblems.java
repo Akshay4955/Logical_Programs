@@ -4,16 +4,36 @@ import java.util.Scanner;
 
 public class LogicalProblems {
     Scanner input = new Scanner(System.in);
+    int i = 0;
+    int totalNoOfNotes = 0;
 
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
         LogicalProblems logicalProblems = new LogicalProblems();
-        logicalProblems.getFibonacciSeries();
-        logicalProblems.getPerfectNumber();
-        logicalProblems.checkPrimeNumber();
-        logicalProblems.getReverseNumber();
-        logicalProblems.getElapsedTime();
+//        logicalProblems.getFibonacciSeries();
+//        logicalProblems.getPerfectNumber();
+//        logicalProblems.checkPrimeNumber();
+//        logicalProblems.getReverseNumber();
+//        logicalProblems.getElapsedTime();
+        int money = input.nextInt();
+        int totalNoOfNotes = logicalProblems.getNoOfNotes(money);
+        System.out.println("Total no of notes is equal to " + totalNoOfNotes);
     }
-
+    int getNoOfNotes(int money) {
+        int[] array = {1000, 500, 100, 50, 10, 5, 2, 1};
+        if (money == 0) {
+            return -1;
+        }
+        if (money >= array[i]) {
+            int noOfNotes = money / array[i];
+            money = money % array[i];
+            totalNoOfNotes += noOfNotes;
+            System.out.println(array[i] + " rupees notes is equal to " + noOfNotes);
+        }
+        i++;
+        getNoOfNotes(money);
+        return totalNoOfNotes;
+    }
     void getElapsedTime() {
         long start = System.nanoTime();
         System.out.println("Welcome to Stopwatch");
