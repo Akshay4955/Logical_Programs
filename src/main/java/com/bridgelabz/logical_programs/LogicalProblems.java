@@ -11,6 +11,21 @@ public class LogicalProblems {
         logicalProblems.getPerfectNumber();
         logicalProblems.checkPrimeNumber();
         logicalProblems.getReverseNumber();
+        logicalProblems.getElapsedTime();
+    }
+
+    void getElapsedTime() {
+        long start = System.nanoTime();
+        System.out.println("Welcome to Stopwatch");
+        System.out.println("Please enter e to stop StopWatch");
+        long end = 0;
+        if (input.hasNext()) {
+            end = System.nanoTime();
+        }
+
+        long elapsedTime = end - start;
+        double elapsedTimeSecond = (double) elapsedTime / 1000000000;
+        System.out.println("Elapsed Time is equal to: " + elapsedTimeSecond + " second");
     }
 
     void getReverseNumber() {
