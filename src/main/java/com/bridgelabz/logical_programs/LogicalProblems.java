@@ -1,5 +1,6 @@
 package com.bridgelabz.logical_programs;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LogicalProblems {
@@ -10,15 +11,37 @@ public class LogicalProblems {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         LogicalProblems logicalProblems = new LogicalProblems();
-//        logicalProblems.getFibonacciSeries();
-//        logicalProblems.getPerfectNumber();
-//        logicalProblems.checkPrimeNumber();
-//        logicalProblems.getReverseNumber();
-//        logicalProblems.getElapsedTime();
+        logicalProblems.getFibonacciSeries();
+        logicalProblems.getPerfectNumber();
+        logicalProblems.checkPrimeNumber();
+        logicalProblems.getReverseNumber();
+        logicalProblems.getElapsedTime();
+        logicalProblems.getCouponNumbers();
         int money = input.nextInt();
         int totalNoOfNotes = logicalProblems.getNoOfNotes(money);
         System.out.println("Total no of notes is equal to " + totalNoOfNotes);
     }
+
+    //To get how many random nos required to get entered distinct coupon nos between range 0 to 10
+    void getCouponNumbers() {
+        int counter = 0;
+        ArrayList<Integer> distinctCouponNos = new ArrayList<Integer>();
+        distinctCouponNos.add(2);
+        distinctCouponNos.add(4);
+        distinctCouponNos.add(5);
+        while (distinctCouponNos.size() > 0) {
+
+            int randomNo = (int) Math.floor(Math.random() * 10);
+            counter++;
+            for (int i = 0; i < distinctCouponNos.size(); i++) {
+                if (randomNo == distinctCouponNos.get(i)) {
+                    distinctCouponNos.remove(i);
+                }
+            }
+        }
+        System.out.println("Count to get all distinct coupon nos: " + counter);
+    }
+
     int getNoOfNotes(int money) {
         int[] array = {1000, 500, 100, 50, 10, 5, 2, 1};
         if (money == 0) {
@@ -34,6 +57,7 @@ public class LogicalProblems {
         getNoOfNotes(money);
         return totalNoOfNotes;
     }
+
     void getElapsedTime() {
         long start = System.nanoTime();
         System.out.println("Welcome to Stopwatch");
